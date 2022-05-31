@@ -193,9 +193,10 @@ def updateInDB(req, index):
     f"UPDATE QUESTIONS "
     f"SET Title = '{question.title}',"
     f" Texte = '{question.texte}',"
-    f" Image = '{question.image}'"
+    f" Image = '{question.image}',"
+    f" Position = '{question.position}'"
     f"WHERE Position = "
-    f"{index};"
+    f"{question.position};"
     )
     try:
         cur.execute("begin")
