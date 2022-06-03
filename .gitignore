@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
+
 venv
 .vscode
-quiz-api/__pycache__/questionclass.cpython-310.pyc
-=======
-.vscode
-venv
->>>>>>> Stashed changes
+quiz-api/__pycache__s
