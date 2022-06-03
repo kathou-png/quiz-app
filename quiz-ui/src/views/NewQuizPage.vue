@@ -3,11 +3,30 @@
     <h1>This is the new quiz page</h1>
     <div id="form">
       <p>Saissiez votre nom :</p>
-      <input type="text" placeholder="Username">
-      <button>GO!</button>
+      <input type="text" v-model="username" />
+      <button @click="launchNewQuiz">GO!</button>
     </div>
   </div>
 </template>
+
+<script>
+import participationStorageService from "@/services/ParticipationStorageService";
+export default {
+  name: "NewQuizPage",
+  data() {
+    return {
+      username: ''
+    };
+  },
+  methods: {
+    launchNewQuiz() {
+      participationStorageService.savePlayerName(this.username);
+      console.log("Launch new quiz with", participationStorageService.getPlayerName());
+      this.$router.push('/questions');
+    }
+  }
+};
+</script>
 
 <style>
 @media (min-width: 1024px) {
