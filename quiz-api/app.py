@@ -1,5 +1,5 @@
 from flask import Flask, request
-import login, question
+import login, question, participation, quizinfo
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def hello_world():
 
 @app.route('/quiz-info', methods=['GET'])
 def GetQuizInfo():
-	return {"size": 0, "scores": []}, 200
+	return quizinfo.getInfo(request)
 
 @app.route('/login', methods=['POST'])
 def LoginTest():
@@ -30,8 +30,15 @@ def updateQuestion(index):
 
 @app.route('/questions/<index>', methods=['DELETE'])
 def deleteQuestion(index):
-	print(request)
 	return question.deleteQuestion(request, index)
+
+@app.route('/participations', methods=['POST'])
+def addParticipation():
+	return participation.addParticipation(request)
+
+@app.route('/participations', methods=['DELETE'])
+def removeParticipation():
+	return participation.removeParticipation(request)
 
 if __name__ == "__main__":
     app.run(ssl_context='adhoc')

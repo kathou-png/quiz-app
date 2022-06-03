@@ -28,18 +28,21 @@ class Question():
      print(reponsesData)
      dict_reponses = []
      for reponse in reponsesData :
-        dict_reponses.append({'text': str(reponse[0]),'isCorrect': reponse[1]})
+        if (reponse[1].lower() == 'true'):
+         dict_reponses.append({'text': str(reponse[0]),'isCorrect': True})
+        else:
+          dict_reponses.append({'text': str(reponse[0]),'isCorrect': False})
      dict_data = {
          'id' : self.id,
          'position' : self.position,
          'text' : self.texte,
          'title' : self.title,
          'image': self.image,
-         'possibleanswers' : dict_reponses,
+         'possibleAnswers' : dict_reponses,
      }
      my_dict = dict_data
      my_json = json.dumps(my_dict, indent=4)
-     print(my_json)
+     #print(my_json)
      return my_json
 
 
