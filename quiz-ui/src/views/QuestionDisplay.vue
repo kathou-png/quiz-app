@@ -1,11 +1,11 @@
 <template>
   <div class="QuestionDisplay">
-    <h1>{{question.texte}}</h1>
+    <h1>{{question.title}}</h1>
+    <h2>{{question.text}}</h2>
     <img v-if="question.image" :src="question.image" />
-    <a @click="$emit('answer-selected', 1)">La réponse 1</a>
-    <a @click="$emit('answer-selected', 2)">La réponse 2</a>
-    <a @click="$emit('answer-selected', 3)">La réponse 3</a>
-    <a @click="$emit('answer-selected', 4)">La réponse 4</a>
+     <div v-for="(reponse, index) in question.possibleAnswers" v-bind:key="reponse.position" @click="$emit('answer-selected', index + 1)">
+    {{ index  + 1 }} {{ reponse.text }}
+  </div>
   </div>
 </template>
 
@@ -19,6 +19,8 @@ export default {
     question: {
         type: Object
     }
+  },
+  async created(){
   },
   emits: ["answer-selected"]
 };

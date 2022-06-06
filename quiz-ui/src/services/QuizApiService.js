@@ -31,6 +31,6 @@ export default {
     return this.call("get", "quiz-info")
   },
   async getQuestion(position) {
-    return this.call("get", "quiz-info")
+    return this.call("get", "questions/" + position.toString())
   }
 };
