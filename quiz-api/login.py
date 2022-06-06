@@ -5,7 +5,7 @@ def PostLogin(req):
 	payload = req.get_json()
 	password = payload['password']
 	#si password ok
-	if (password == "Vive l'ESIEE !"):
+	if (password == "rookees"):
 		token = jwtU.build_token()
 		return  {"token" : token}, 200
 	#sinon

@@ -32,5 +32,11 @@ export default {
   },
   async getQuestion(position) {
     return this.call("get", "questions/" + position.toString())
+  },
+  async postScore(player){
+    return this.call("post", "participations", player)
+  },
+  async loginAdmin(password){
+    return this.call("post", "login", password)
   }
 };

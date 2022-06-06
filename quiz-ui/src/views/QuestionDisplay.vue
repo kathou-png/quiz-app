@@ -3,7 +3,7 @@
     <h1>{{question.title}}</h1>
     <h2>{{question.text}}</h2>
     <img v-if="question.image" :src="question.image" />
-     <div v-for="(reponse, index) in question.possibleAnswers" v-bind:key="reponse.position" @click="$emit('answer-selected', index + 1)">
+     <div v-for="(reponse, index) in question.possibleAnswers" v-bind:key="reponse.position" @click="$emit('answer-selected', index)">
     {{ index  + 1 }} {{ reponse.text }}
   </div>
   </div>
