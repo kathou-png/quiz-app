@@ -1,5 +1,6 @@
 <template>
   <h1>Home page</h1>
+  <h2>Scoreboard :</h2>
   <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
   </div>
@@ -17,7 +18,10 @@ export default {
     };
   },
   async created() {
-    this.registeredScores = quizApiService.getQuizInfo();
+    var quizInfoPromise = quizApiService.getQuizInfo();
+    var quizInfoAPIResult = await quizInfoPromise;
+    var quizInfo = quizInfoAPIResult.data.scores;
+    this.registeredScores = quizInfo;
     console.log("Composant Home page 'created'");
     console.log("Registered Scores :", this.registeredScores);
   }

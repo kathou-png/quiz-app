@@ -1,7 +1,9 @@
 from flask import Flask, request
 import login, question, participation, quizinfo
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello_world():
@@ -39,6 +41,6 @@ def addParticipation():
 @app.route('/participations', methods=['DELETE'])
 def removeParticipation():
 	return participation.removeParticipation(request)
-
+	
 if __name__ == "__main__":
-    app.run(ssl_context='adhoc')
+    app.run()

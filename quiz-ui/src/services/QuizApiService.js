@@ -8,7 +8,7 @@ const instance = axios.create({
 export default {
   async call(method, resource, data = null, token = null) {
     var headers = {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     };
     if (token != null) {
       headers.authorization = "Bearer " + token;
@@ -27,10 +27,10 @@ export default {
         console.error(error);
       });
   },
-  getQuizInfo() {
-    return this.call("get", "quiz-info");
+  async getQuizInfo() {
+    return this.call("get", "quiz-info")
   },
-  getQuestion(position) {
-    // not implemented
+  async getQuestion(position) {
+    return this.call("get", "quiz-info")
   }
 };
