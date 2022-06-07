@@ -1,9 +1,11 @@
 <template>
-  <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
-    {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
+  <div class="ScoreBoard">
+    <h4> Scoreboard:</h4>
+    <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
+      {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
+    </div>
   </div>
-  
-    <button @click="effacerScoreboard" >Effacer scoreboard</button>
+    <button class="button" @click="effacerScoreboard">Effacer scoreboard</button>
 </template>
 
 <script>
@@ -35,3 +37,25 @@ export default {
   }
 };
 </script>
+
+<style>
+@import '@/assets/theme.css';
+.button {
+    display: flex;
+    padding: 5%;
+    margin: 1%;
+    margin-top : 20px;
+    margin-bottom : 40px;
+    border-radius: 15px;
+    background-color: rgb(132, 67, 67);
+    color: white;
+  }
+.ScoreBoard{
+  display: flex;
+  padding: 5%;
+  width: 75%;
+  border-radius: 15px;
+  background-color: rgba(60, 61, 82, 0.384);
+  color: white;
+}
+</style>

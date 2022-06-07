@@ -3,7 +3,7 @@
     <h1>Commencer un nouveau quiz</h1>
     <div id="form">
       <p>Saissiez votre nom :</p>
-      <input type="text" v-model="username" />
+      <input type="text" v-model="username" style='color:black'/>
       <button @click="launchNewQuiz" class="glow-on-hover">GO!</button>
     </div>
   </div>

@@ -1,15 +1,14 @@
 <template>
-<div class="Admin console" v-show="display">
+<div class="AdminConsole" v-show="display">
     <h3>Admin console</h3>
-    <h4> Scoreboard:</h4>
     <Scoreboard  ></Scoreboard>
     <router-link to="/question-creation">Créer une question</router-link>
 </div>
-<div class = "QuestionList"  v-show="display">
+<div class="QuestionList" v-show="display">
     <h3>Question List:</h3>
         <div class="question" v-for="(question, index) in  questionList" v-bind:key="question.position" @click="showQuestionDetails(index)">
-        position : {{question.position}}
-        title : {{ question.title }} 
+        position : {{question.position}} <br>
+        title : {{ question.title }} <br>
         text : {{question.text}}
         </div>
 </div>
@@ -112,8 +111,10 @@ export default {
     display: block;
     align-items: center;
   }
+  .AdminConsole{
+    height: 750px;
+  }
 }
- 
  .question:hover{
       background-color: bisque;
       color: black;

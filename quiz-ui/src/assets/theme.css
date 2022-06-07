@@ -138,21 +138,32 @@ img{
     100% { background-position: 0 0; }
 }
 .container{
-    height: 40vh;
+    width: 100%;
 }
 .reponse{
     display: flex;
-
     flex-direction: row;
     background-color: rgb(67, 70, 132);
     color: white;
     padding: 5%;
     margin: 1%;
     width: 45%;
-    height: 100vh;
+    height: 100%;
     border-radius: 15px;
 }
 .reponse:hover{
     background-color: #7a00ff;
+}
+.question{
+    text-align : justify;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(60, 61, 82, 0.384);
+    color: white;
+    padding: 5%;
+    margin: 1%;
+    width: 100%;
+    height: 20%;
+    border-radius: 15px;
 }
 

@@ -3,7 +3,7 @@
     <h1>Page administrateur</h1>
     <div v-show="display">
       <p>Saissiez le mot de passe :</p>
-      <input type="text" v-model="password" />
+      <input type="text" v-model="password" style="color:black"/>
       <button @click="loginAdmin">OK</button>
       <p>{{message}}</p>
     </div>
