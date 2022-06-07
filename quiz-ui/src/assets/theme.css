@@ -82,6 +82,8 @@ img{
     height: 10vh;
     border: none;
     outline: none;
+    margin : 30px;
+    text-align: center;
     color: #fff;
     background: #111;
     cursor: pointer;
