@@ -6,9 +6,9 @@
 </div>
 <div class="QuestionList" v-show="display">
     <h3>Question List:</h3>
-        <div class="question" v-for="(question, index) in  questionList" v-bind:key="question.id" @click="showQuestionDetails(index)">
-        position : {{question.position}}
-        title : {{ question.title }} 
+        <div class="question" v-for="(question, index) in  questionList" v-bind:key="question.position" @click="showQuestionDetails(index)">
+        position : {{question.position}} <br>
+        title : {{ question.title }} <br>
         text : {{question.text}}
         </div>
 </div>
@@ -20,7 +20,7 @@
     <QuestionEdition :question ="currentQuestion" v-show="displayEdit" />
 
 </div>
- <button @click="logoutAdmin" class="glow-on-hover">Déconnexion</button>
+<button @click="logoutAdmin" class="glow-on-hover">Déconnexion</button>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   data() {
       return {
         display : true,
-        displayEdit : false,
+         displayEdit : false,
         questionList:[],
         totalNumberOfQuestion : 0,
         currentQuestion:{
@@ -106,7 +106,7 @@ export default {
         var participationDeletePromise = quizApiService.deleteParticipation(token);
         var participationDeleteAPIResult = await participationDeletePromise;
         console.log(participationDeleteAPIResult);
-    },
+        },
     logoutAdmin(){
       this.$router.push('/admin')
     }
@@ -130,7 +130,4 @@ export default {
       background-color: bisque;
       color: black;
   }
-  a{
-  padding:50%
-}
 </style>
