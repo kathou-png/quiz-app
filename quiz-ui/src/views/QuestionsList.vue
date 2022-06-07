@@ -19,7 +19,10 @@
     <button @click="display='!display'">Retour</button>
     <QuestionEdition :question ="currentQuestion" v-show="displayEdit" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 </div>
