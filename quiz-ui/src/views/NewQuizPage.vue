@@ -1,6 +1,6 @@
 <template>
   <div class="newquizpage">
-    <h1>This is the new quiz page</h1>
+    <h1>Commencer un nouveau quiz</h1>
     <div id="form">
       <p>Saissiez votre nom :</p>
       <input type="text" v-model="username" />

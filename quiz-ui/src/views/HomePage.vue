@@ -1,10 +1,13 @@
 <template>
+<div>
   <h1>Home page</h1>
-  <h2>Scoreboard :</h2>
-  <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
-    {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
-  </div>
+ <img
+    src="../assets/logo.svg"
+    alt="logoquizz"
+    height="100%"
+    width="100%" />
   <router-link to="/start-new-quiz-page">Démarrer le quiz !</router-link>
+</div>
 </template>
 
 <script>
@@ -27,3 +30,17 @@ export default {
   }
 };
 </script>
+<style>
+div{
+  display: flex;
+  flex-direction: column;
+  align-items : center;
+}
+img{
+  width : 50vw;
+  height: 50vh;
+}
+router-link{
+  background-color: aqua;
+}
+</style>
