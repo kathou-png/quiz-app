@@ -38,5 +38,14 @@ export default {
   },
   async loginAdmin(password){
     return this.call("post", "login", password)
+  },
+  async deleteQuestion(index, token){
+    return this.call("delete", "questions/" + index.toString(), null, token)
+  },
+  async deleteParticipation(token){
+    return this.call("delete", "participation", null, token );
+  },
+  async createQuestion(token, body){
+    return this.call("post", "questions", body, token);
   }
 };

@@ -4,7 +4,7 @@
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <br>
   <QuestionDisplay v-show=display :question="currentQuestion" @answer-selected="answerClickedHandler" />
-  <div v-show="!display"> congrats you ended the game. Scoreboard :
+  <div v-show="!display"> congrats you ended the game with {{score}} / {{totalNumberOfQuestion}}. Scoreboard :
     <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
   </div></div>

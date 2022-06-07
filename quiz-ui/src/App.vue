@@ -29,8 +29,13 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 header {
+  width: 100%;
   line-height: 1.5;
   max-height: 100vh;
+  background-color: beige;
+}
+body{
+  display: block;
 }
 
 .logo {
@@ -78,7 +83,7 @@ nav a:first-of-type {
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
+    display: block;
     place-items: center;
   }
 
@@ -92,6 +97,7 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+    width : 100%;
   }
 
   header .wrapper {

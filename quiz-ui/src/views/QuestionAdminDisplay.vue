@@ -7,14 +7,12 @@
       <button @click="loginAdmin">OK</button>
       <p>{{message}}</p>
     </div>
-    <!--QuestionList v-show = "!display"></QuestionList-->
       <button @click="logoutAdmin">Déconnexion</button>
   </div>
 </template>
 
 <script>
 import quizApiService from "@/services/quizApiService";
-//import QuestionList from "@/views/QuestionList.vue";
 
 export default {
   name: "AdminVue",
@@ -24,9 +22,6 @@ export default {
         password : "",
         message : ""
       }
-  },
-  components:{
-   // QuestionList
   },
 
   methods:{
@@ -39,7 +34,11 @@ export default {
       try{
         if (loginAPIResult.status == 200){
           this.message = "right password";
+          console.log(loginAPIResult);
           this.display = !this.display;
+          //saving token
+          window.localStorage.setItem("token", loginAPIResult.data.token);
+          this.$router.push('/question-list');
         }
       }
       catch(error){
