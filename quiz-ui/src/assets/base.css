@@ -4,14 +4,13 @@
   box-sizing: border-box;
 }
 *:focus {
-  outline: 3px dashed #228bec;
+  outline: 3px dashed blanchedalmond;
 }
 html {
   font: 80% / 1.15 sans-serif;
 }
 h1 {
   margin-top : 10px;
-  width : 220px;
   place-items: center;
 }
 h2 {

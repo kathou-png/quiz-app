@@ -25,8 +25,8 @@ import { RouterLink, RouterView } from 'vue-router'
     padding: 0;
 }
 #app{
-  background-color: black;
-  color: antiquewhite; 
+  background-color: #081b3b;
+  color: #415272; 
   max-width: 1280px;
   height: 100vh;
   margin: 0 auto;
@@ -39,7 +39,7 @@ h1{
 }
 nav{
   max-width: 1280px;
-  background-color: beige;
+  background-color: #081b3b;
   width: 80vw;
   height: 10vh;
   display: flex;
@@ -55,6 +55,6 @@ nav a{
   align-items: center;
 }
 nav a:hover{
-  background-color: blanchedalmond;
+  background-color: #162f5e;
 }
 </style>
