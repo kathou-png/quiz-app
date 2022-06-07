@@ -18,13 +18,7 @@
     <button @click="deleteQuestion(currentQuestion)">Supprimer</button>
     <button @click="display='!display'">Retour</button>
     <QuestionEdition :question ="currentQuestion" v-show="displayEdit" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 </div>
  <button @click="logoutAdmin" class="glow-on-hover">Déconnexion</button>
 </template>

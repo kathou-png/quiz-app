@@ -36,8 +36,6 @@ h1{
   padding:0%
 }
 a{
-  padding: 2%;
-  padding: 25px 0;
   text-align: center;
 }
 </style>
