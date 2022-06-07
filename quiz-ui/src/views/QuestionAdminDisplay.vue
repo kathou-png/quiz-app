@@ -4,10 +4,10 @@
     <div v-show="display">
       <p>Saissiez le mot de passe :</p>
       <input type="text" v-model="password" style="color:black"/>
-      <button @click="loginAdmin" class="glow-on-hover">OK</button>
+      <button class="OkButton" @click="loginAdmin">Valider le mot de passe</button>
       <p>{{message}}</p>
     </div>
-     
+      <button class="UnlogButton" @click="logoutAdmin">Déconnexion</button>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
         }
       }
       catch(error){
-          this.message = "wrong password";
+          this.message = "mot de passe incorrect";
       }
     }
   }
@@ -57,5 +57,33 @@ export default {
   }
   
 }
-
+.OkButton{
+    display: flex;
+    padding: 5%;
+    margin: auto;
+    margin-top : 40px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 70%;
+    vertical-align: middle;
+    background-color: rgb(67, 132, 78);
+    color: white;
+  }
+.UnlogButton{
+    display: flex;
+    padding: 5%;
+    margin: 1%;
+    margin-top : 20px;
+    border-radius: 15px;
+    width: 61%;
+    text-align: center;
+    background-color: rgb(132, 67, 67);
+    color: white;
+  }
+  h1{
+    margin-bottom: 40px;
+  }
+  p{
+    color: white;
+  }
 </style>
