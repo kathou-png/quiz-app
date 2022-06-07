@@ -24,7 +24,6 @@ export default {
   },
   async created(){
   },
-  emits: ["answer-selected"]
 };
 </script>
 

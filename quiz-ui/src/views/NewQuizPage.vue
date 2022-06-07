@@ -37,9 +37,9 @@ export default {
   }
 }
 .glow-on-hover {
-  
-    width: 10vw;
-    height: 5vh;
+    margin : 10%;
+    width: 10%;
+    height: 10%;
 }
 input{
   background-color: white;

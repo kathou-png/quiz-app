@@ -49,8 +49,8 @@ def updateQuestion(req, index):
         #ajout question vide
         index= int(index)
         question2 = deserializing(questionJSON)
-        question2.title = str(question2.title).replace("'","''")
-        question2.texte = str(question2.texte).replace("'","''")
+        #question2.title = str(question2.title).replace("'","''")
+        #question2.texte = str(question2.texte).replace("'","''")
         count = getCountQuestion()
         a = 0
         b = 0
@@ -88,6 +88,8 @@ def deleteQuestion(req, index):
             if (index == count):
                 deleteInDB(req, index)
                 quizinfo.updateDB("size","-")
+            elif (index >= count):
+                return '', 401
             else:
                 deleteInDB(req, index)
                 for i in range (index, count):
@@ -205,8 +207,6 @@ def serializing(questionSQL):
 
 def insertQuestion(req, question2):
     
-    question2.title = str(question2.title).replace("'","''")
-    question2.texte = str(question2.texte).replace("'","''")
     index = question2.position
     count = getCountQuestion()
 

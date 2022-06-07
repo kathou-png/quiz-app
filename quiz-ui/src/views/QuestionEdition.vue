@@ -1,11 +1,11 @@
 <template>
   <div class="EditQuestion">
-    <h1>{{question.title}}</h1>
-    <h2>{{question.text}}</h2>
-    <img v-if="question.image" :src="question.image" />
+    <h1>edit question here</h1>
+    <h2>{{question}}</h2>
+    <!--img v-if="question.image" :src="question.image" />
      <div v-for="(reponse, index) in question.possibleAnswers" v-bind:key="reponse.position" @click="$emit('answer-selected', index)">
     {{ index  + 1 }} {{ reponse.text }}
-  </div>
+  </div-->
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     }
   },
   async created(){
+    console.log(this.question);
   },
 };
 </script>

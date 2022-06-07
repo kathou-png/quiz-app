@@ -3,12 +3,10 @@
     <!--h1>This is the questions page</h1-->
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <br>
-  Your score : {{score}} / {{totalNumberOfQuestion}}
+  Ton score : {{score}} / {{totalNumberOfQuestion}}
   <QuestionDisplay v-show=display :question="currentQuestion" @answer-selected="answerClickedHandler" />
-    <div v-show="!display"> congrats you ended the game with {{score}} / {{totalNumberOfQuestion}}. Scoreboard :
-      <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
-      {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
-      </div>
+    <div v-show="!display"> 
+     <Scoreboard></Scoreboard>
       <div class="flex">
       <router-link to="/">Accueil</router-link>
       <router-link to="/start-new-quiz-page">Rejouer</router-link>
@@ -18,9 +16,10 @@
 </template>
 
 <script>
-import quizApiService from "@/services/quizApiService";
+import quizApiService from "@/services/QuizApiService";
 import QuestionDisplay from "@/views/QuestionDisplay.vue";
 import participationStorageService from "@/services/ParticipationStorageService";
+import Scoreboard from "./Scoreboard.vue";
 
 export default {
   name: "QuestionManager",
@@ -32,6 +31,7 @@ export default {
       },
       score: 0,
       display: true,
+      displayScoreboard : false,
       registeredScores: [],
       currentQuestionPosition: 1,
       totalNumberOfQuestion:0,
@@ -43,8 +43,9 @@ export default {
     }
   },
   components:{
-    QuestionDisplay
-  },
+    QuestionDisplay,
+    Scoreboard
+},
   async created(){
     var quizInfoPromise = quizApiService.getQuizInfo();
     var quizInfoAPIResult = await quizInfoPromise;
@@ -98,6 +99,7 @@ export default {
       var quizInfoAPIResult = await quizInfoPromise;
       var quizInfo = quizInfoAPIResult.data.scores;
       this.registeredScores = quizInfo;
+      this.displayScoreboard = true;
     },
     getRightAnswer: function (){
       var i = 0;

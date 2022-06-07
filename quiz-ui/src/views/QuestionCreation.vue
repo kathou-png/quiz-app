@@ -31,8 +31,8 @@
     </div>
 
   </div>
-  <button>Retour</button>
-  <button @click="createQuestion">Créer</button>
+  <button @click="backtoQuestionList" class="glow-on-hover">Retour</button>
+  <button @click="createQuestion" class="glow-on-hover">Créer</button>
 </div>
 </template>
 
@@ -91,11 +91,18 @@ export default {
             "possibleAnswers": possibleAnswers
         }
         console.log(body);
-     const token = window.localStorage.getItem("token");
-    var quizInfoPromise = quizApiService.createQuestion(token, body);
-    var quizInfoAPIResult = await quizInfoPromise;
-    console.log(quizInfoAPIResult);
+        const token = window.localStorage.getItem("token");
+        var quizInfoPromise = quizApiService.createQuestion(token, body);
+        var quizInfoAPIResult = await quizInfoPromise;
+        console.log(quizInfoAPIResult);
+        this.$router.push('/admin');
+    },
+    backtoQuestionList(){
+        this.$router.push('/admin');
     }
   }
 }; 
 </script>
+<style>
+input{
+    color: black}</style>

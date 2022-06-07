@@ -4,10 +4,10 @@
     <div v-show="display">
       <p>Saissiez le mot de passe :</p>
       <input type="text" v-model="password" style="color:black"/>
-      <button @click="loginAdmin">OK</button>
+      <button @click="loginAdmin" class="glow-on-hover">OK</button>
       <p>{{message}}</p>
     </div>
-      <button @click="logoutAdmin">Déconnexion</button>
+     
   </div>
 </template>
 
@@ -44,9 +44,7 @@ export default {
       catch(error){
           this.message = "wrong password";
       }
-    },
-    async logoutAdmin(){
-    },
+    }
   }
 };
 </script>
@@ -57,5 +55,7 @@ export default {
     display: flex;
     align-items: center;
   }
+  
 }
+
 </style>
