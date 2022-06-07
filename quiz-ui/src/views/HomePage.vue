@@ -1,12 +1,12 @@
 <template>
 <div>
-  <h1>Home page</h1>
+  <h1>Bienvenue</h1>
  <img
     src="../assets/logo.svg"
     alt="logoquizz"
     height="100%"
     width="100%" />
-  <router-link to="/start-new-quiz-page">Démarrer le quiz !</router-link>
+  <router-link to="/start-new-quiz-page" class="glow-on-hover">Démarrer le quiz !</router-link>
 </div>
 </template>
 
@@ -31,16 +31,6 @@ export default {
 };
 </script>
 <style>
-div{
-  display: flex;
-  flex-direction: column;
-  align-items : center;
-}
-img{
-  width : 50vw;
-  height: 50vh;
-}
-router-link{
-  background-color: aqua;
-}
+
+
 </style>

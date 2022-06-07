@@ -43,7 +43,7 @@ export default {
     return this.call("delete", "questions/" + index.toString(), null, token)
   },
   async deleteParticipation(token){
-    return this.call("delete", "participation", null, token );
+    return this.call("delete", "participations", null, token );
   },
   async createQuestion(token, body){
     return this.call("post", "questions", body, token);

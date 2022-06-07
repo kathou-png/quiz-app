@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import quizApiService from "@/services/quizApiService";
+import quizApiService from "@/services/QuizApiService";
 
 export default {
   name: "AdminVue",
@@ -51,7 +51,7 @@ export default {
 };
 </script>
 <style>
-@media (min-width: 1024px) {
+@media (min-width: 1024px)  {
   .admin {
     min-height: 100vh;
     display: flex;

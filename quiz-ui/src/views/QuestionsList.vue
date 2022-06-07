@@ -3,10 +3,9 @@
     <h3>Admin console</h3>
     <h4> Scoreboard:</h4>
     <Scoreboard  ></Scoreboard>
-    <button>Effacer scoreboard</button>
     <router-link to="/question-creation">Créer une question</router-link>
 </div>
-<div class = "QuestionList"  v-show="display" v-bind:id="questionList.position">
+<div class = "QuestionList"  v-show="display">
     <h3>Question List:</h3>
         <div class="question" v-for="(question, index) in  questionList" v-bind:key="question.position" @click="showQuestionDetails(index)">
         position : {{question.position}}
@@ -106,6 +105,7 @@ export default {
 </script>
 
 <style>
+@import '@/assets/theme.css';
 @media (min-width: 1024px) {
   .QuestionList {
     min-height: 100vh;

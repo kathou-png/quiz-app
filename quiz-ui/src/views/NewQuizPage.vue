@@ -4,7 +4,7 @@
     <div id="form">
       <p>Saissiez votre nom :</p>
       <input type="text" v-model="username" />
-      <button @click="launchNewQuiz">GO!</button>
+      <button @click="launchNewQuiz" class="glow-on-hover">GO!</button>
     </div>
   </div>
 </template>
@@ -35,5 +35,14 @@ export default {
     display: flex;
     align-items: center;
   }
+}
+.glow-on-hover {
+  
+    width: 10vw;
+    height: 5vh;
+}
+input{
+  background-color: white;
+  color: var(--background-color);
 }
 </style>

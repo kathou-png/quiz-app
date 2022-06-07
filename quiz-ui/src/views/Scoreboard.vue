@@ -2,6 +2,8 @@
   <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
   </div>
+  
+    <button @click="effacerScoreboard" >Effacer scoreboard</button>
 </template>
 
 <script>
@@ -21,6 +23,15 @@ export default {
     var quizInfo = quizInfoAPIResult.data.scores;
     this.registeredScores = quizInfo;
     console.log("Composant scoreboard 'created'");
+  },
+  methods:{
+      async effacerScoreboard(){
+        var token =  window.localStorage.getItem("token", );
+        var scoreboardPromise = quizApiService.deleteParticipation(token);
+        var scoreboardAPIResult = await scoreboardPromise;
+        this.registeredScores = scoreboardAPIResult.data;
+        console.log(scoreboardAPIResult);
+      }
   }
 };
 </script>

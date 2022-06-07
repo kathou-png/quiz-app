@@ -3,11 +3,17 @@
     <!--h1>This is the questions page</h1-->
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <br>
+  Your score : {{score}} / {{totalNumberOfQuestion}}
   <QuestionDisplay v-show=display :question="currentQuestion" @answer-selected="answerClickedHandler" />
-  <div v-show="!display"> congrats you ended the game with {{score}} / {{totalNumberOfQuestion}}. Scoreboard :
-    <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
-    {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
-  </div></div>
+    <div v-show="!display"> congrats you ended the game with {{score}} / {{totalNumberOfQuestion}}. Scoreboard :
+      <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
+      {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
+      </div>
+      <div class="flex">
+      <router-link to="/">Accueil</router-link>
+      <router-link to="/start-new-quiz-page">Rejouer</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,7 +66,8 @@ export default {
     },
     async answerClickedHandler(selectedAnswerPosition){
       console.log("answer Clicked Handler");
-      this.player.answers[this.currentQuestionPosition-1] = selectedAnswerPosition;
+      console.log(" pos is " + selectedAnswerPosition);
+      this.player.answers[this.currentQuestionPosition-1] = selectedAnswerPosition+1;
       
       var rightAnswer = this.getRightAnswer();
       if (this.currentQuestionPosition == this.totalNumberOfQuestion){
@@ -87,13 +94,10 @@ export default {
       console.log(postPlayerAPIResult);
       console.log(participationStorageService.getParticipationScore());
     
-     var quizInfoPromise = quizApiService.getQuizInfo();
-     var quizInfoAPIResult = await quizInfoPromise;
-     var quizInfo = quizInfoAPIResult.data.scores;
-     this.registeredScores = quizInfo;
-
-
-
+      var quizInfoPromise = quizApiService.getQuizInfo();
+      var quizInfoAPIResult = await quizInfoPromise;
+      var quizInfo = quizInfoAPIResult.data.scores;
+      this.registeredScores = quizInfo;
     },
     getRightAnswer: function (){
       var i = 0;
@@ -115,5 +119,15 @@ export default {
     display: flex;
     align-items: center;
   }
+}
+a{
+  padding: 10%;
+  background-color: white;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 </style>
