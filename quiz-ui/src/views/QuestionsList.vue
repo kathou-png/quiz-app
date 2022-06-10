@@ -2,6 +2,8 @@
 <div class="AdminConsole" v-show="display">
     <h3>Admin console</h3>
     <Scoreboard  ></Scoreboard>
+    
+    <button class="button" @click="deleteScoreboard">Effacer scoreboard</button>
     <router-link to="/question-creation">Créer une question</router-link>
 </div>
 <div class="QuestionList" v-show="display">
@@ -12,7 +14,7 @@
         text : {{question.text}}
         </div>
 </div>
-<div class="QuestionDetail" v-show="!display">
+<div class="QuestionDetail" v-show="displayQuestion">
     <QuestionDisplay :question="currentQuestion" />
     <button @click="editQuestion(currentQuestion)">Editer</button>
     <button @click="deleteQuestion(currentQuestion)">Supprimer</button>
@@ -34,7 +36,8 @@ export default {
   data() {
       return {
         display : true,
-         displayEdit : false,
+        displayQuestion : false,
+        displayEdit : false,
         questionList:[],
         totalNumberOfQuestion : 0,
         currentQuestion:{
@@ -76,7 +79,8 @@ export default {
     },
     async showQuestionDetails(index){
         console.log("index " + index);
-        this.display = !this.display;
+        this.display = false;
+        this.displayQuestion = true;
         var questionInfoPromise = quizApiService.getQuestion(parseInt(index)+1);
         var questionInfoAPIResult = await questionInfoPromise;
         var questionInfo = questionInfoAPIResult.data;
@@ -94,7 +98,9 @@ export default {
             var questionDeleteAPIResult = await questionDeletePromise;
             console.log(questionDeleteAPIResult);
             this.questionList = this.getQuestions();
-            this.display = !this.display;
+            this.displayQuestion = false;
+            this.display = true;
+            this.$forceUpdate();
         }
         catch(error){
             console.log(error);

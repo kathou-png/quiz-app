@@ -6,7 +6,10 @@
   Ton score : {{score}} / {{totalNumberOfQuestion}}
   <QuestionDisplay v-show=display :question="currentQuestion" @answer-selected="answerClickedHandler" />
     <div v-show="!display"> 
-     <Scoreboard></Scoreboard>
+     <h4> Scoreboard:</h4>
+    <div v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
+      {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
+    </div>
       <div class="flex">
       <router-link to="/">Accueil</router-link>
       <router-link to="/start-new-quiz-page">Rejouer</router-link>
@@ -19,7 +22,6 @@
 import quizApiService from "@/services/QuizApiService";
 import QuestionDisplay from "@/views/QuestionDisplay.vue";
 import participationStorageService from "@/services/ParticipationStorageService";
-import Scoreboard from "./Scoreboard.vue";
 
 export default {
   name: "QuestionManager",
@@ -43,8 +45,7 @@ export default {
     }
   },
   components:{
-    QuestionDisplay,
-    Scoreboard
+    QuestionDisplay
 },
   async created(){
     var quizInfoPromise = quizApiService.getQuizInfo();

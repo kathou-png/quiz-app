@@ -5,7 +5,6 @@
       {{ scoreEntry.playerName }} - {{ scoreEntry.score }}
     </div>
   </div>
-    <button class="button" @click="effacerScoreboard">Effacer scoreboard</button>
 </template>
 
 <script>
@@ -27,13 +26,6 @@ export default {
     console.log("Composant scoreboard 'created'");
   },
   methods:{
-      async effacerScoreboard(){
-        var token =  window.localStorage.getItem("token", );
-        var scoreboardPromise = quizApiService.deleteParticipation(token);
-        var scoreboardAPIResult = await scoreboardPromise;
-        this.registeredScores = scoreboardAPIResult.data;
-        console.log(scoreboardAPIResult);
-      }
   }
 };
 </script>

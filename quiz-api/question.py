@@ -89,7 +89,7 @@ def deleteQuestion(req, index):
                 deleteInDB(req, index)
                 quizinfo.updateDB("size","-")
             elif (index >= count):
-                return '', 401
+                return '', 404
             else:
                 deleteInDB(req, index)
                 for i in range (index, count):
@@ -103,7 +103,7 @@ def deleteQuestion(req, index):
 
         except Exception as e : 
             print(e)
-            return '', 401
+            return '', 404
     else:
         return '', 401
 
